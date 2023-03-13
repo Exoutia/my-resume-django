@@ -11,4 +11,4 @@ def project_index(request):
 def project_detail(request, pk):
     project = Projects.objects.get(pk=pk)
     context = {"project": project}
-    return render(request, "project_detial.html", context)
+    return render(request, "project_detail.html", context)
