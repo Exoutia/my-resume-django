@@ -1,4 +1,5 @@
 from django import forms
+from .models import Post
 
 
 class CommentForm(forms.Form):
@@ -13,3 +14,8 @@ class CommentForm(forms.Form):
             attrs={"class": "form-control", "placeholder": "Leave a comment!"}
         )
     )
+
+class CreatePostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'body', 'categories']
