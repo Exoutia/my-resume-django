@@ -167,3 +167,6 @@ cython_debug/
 
 # secrets
 secrets.txt
+
+# vscode
+.vscode
