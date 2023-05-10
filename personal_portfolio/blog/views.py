@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from blog.models import Post, Comment
 
-from .forms import CommentForm, CreatePostForm
+from .forms import CommentForm, CreateBlogForm
 
 def blog_index(request):
     posts = Post.objects.all().order_by('-created_on')
@@ -49,12 +49,12 @@ def blog_detail(request, pk):
 
 def create_blog(request):
     if request.method == 'GET':
-        context = {'form': CreatePostForm()}
-        return render(request, 'create_post.html', context)
+        context = {'form': CreateBlogForm()}
+        return render(request, 'create_blog.html', context)
     elif request.method == 'POST':
-        form = CreatePostForm(request.POST)
+        form = CreateBlogForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('blog_index')
         else:
-            return render(request, 'create_post.html', {'form': form})
+            return render(request, 'create_blog.html', {'form': form})
