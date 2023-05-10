@@ -15,6 +15,16 @@ class CommentForm(forms.Form):
         )
     )
 
+class CreateCategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ['name']
+    name = forms.CharField(
+        widget=forms.TextInput(
+        attrs={"class": "form-control", "placeholder": "Create a new category"}
+        )
+    )
+
 class CreateBlogForm(forms.ModelForm):
     class Meta:
         model = Post
