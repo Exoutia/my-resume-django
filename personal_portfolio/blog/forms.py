@@ -15,7 +15,7 @@ class CommentForm(forms.Form):
         )
     )
 
-class CreatePostForm(forms.ModelForm):
+class CreateBlogForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'body', 'categories']
